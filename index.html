@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Cinta Kita</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <!-- Slide 1: Cover -->
+        <div class="slide active" id="slide1">
+            <div class="cover-content">
+                <h1>Our Story</h1>
+                <p>Sebuah perjalanan untuk <span class="highlight">[Nama Pacar]</span></p>
+                <div class="cover-date">Dimulai sejak [Tanggal Jadian]</div>
+                <div class="floating-hearts"></div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Polaroid -->
+        <div class="slide" id="slide2">
+            <div class="polaroid-container">
+                <div class="polaroid">
+                    <img src="GANTI_INI_DENGAN_FOTO_KENANGAN_1.jpg" alt="Kenangan 1">
+                    <p>Pertama kali kita bertemu, dunia serasa milik berdua.</p>
+                </div>
+                <div class="cute-doodle">✨</div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Scrapbook -->
+        <div class="slide" id="slide3">
+            <div class="scrapbook-title">Tawa & Petualangan Kita</div>
+            <div class="scrapbook-content">
+                <div class="scrapbook-item item-1">
+                    <img src="GANTI_INI_DENGAN_FOTO_KENANGAN_2.jpg" alt="Kenangan 2">
+                    <p>Lika-liku kita</p>
+                </div>
+                <div class="scrapbook-item item-2">
+                    <img src="GANTI_INI_DENGAN_FOTO_KENANGAN_3.jpg" alt="Kenangan 3">
+                    <p>Selalu ada senyummu</p>
+                </div>
+                <div class="washi-tape"></div>
+            </div>
+        </div>
+
+          <!-- SLIDE BARU: Slide 4 - Momen Bergerak -->
+        <div class="slide video-slide" id="slide4">
+            <h2>Momen Kita yang Bergerak</h2>
+            <video controls autoplay muted loop>
+                <!-- GANTI_INI_DENGAN_VIDEO.mp4 dengan nama file video kamu -->
+                <source src="video_kenangan.mp4" type="video/mp4">
+                Browsermu tidak mendukung tag video.
+            </video>
+        </div>
+
+        <!-- Slide 4: Pesan Singkat -->
+        <div class="slide" id="slide5">
+            <div class="letter-container">
+                <div class="letter-content">
+                    <h2>Terkadang...</h2>
+                    <p>Aku hanya ingin berterima kasih. Untuk setiap tawa, setiap pelukan, dan untuk menjadi tempat pulangku. Terima kasih sudah ada.</p>
+                </div>
+                <div class="letter-signature">- [Nama Kamu]</div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Momen Refleksi -->
+        <div class="slide" id="slide6">
+            <div class="realization-content">
+                <h2>Dan Tiba Saatnya...</h2>
+                <p>Satu tahun. 365 hari. Ribuan tawa. Tak terasa kita sudah sampai di sini. Di babak baru kita.</p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Janji Kita -->
+        <div class="slide" id="slide7">
+            <div class="promises-content">
+                <h2>Untuk Masa Depan Kita...</h2>
+                <ul>
+                    <li>💕 Untuk selalu menjadi tempat bersandar yang paling nyaman</li>
+                    <li>✨ Untuk tertawa bersama, bahkan untuk hal-hal paling konyol</li>
+                    <li>🌍 Untuk menjelajahi dunia, berdua</li>
+                    <li>💪 Untuk saling mendukung mimpi masing-masing</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 7: Hitungan Mundur -->
+        <div class="slide" id="slide8">
+            <div class="countdown-content">
+                <h1 id="countdown-number">3</h1>
+            </div>
+        </div>
+
+        <!-- Slide 8: Grand Finale -->
+        <div class="slide final-slide" id="slide9">
+            <div id="flowers-canvas"></div>
+            <div class="final-content">
+                <h1>Happy 1st Anniversary</h1>
+                <div class="photo-gallery">
+                    <img src="GANTI_INI_DENGAN_FOTO_FAVORIT_1.jpg" alt="Gallery 1">
+                    <img src="GANTI_INI_DENGAN_FOTO_FAVORIT_2.jpg" alt="Gallery 2">
+                    <img src="GANTI_INI_DENGAN_FOTO_FAVORIT_3.jpg" alt="Gallery 3">
+                </div>
+                <div id="typewriter"></div>
+            </div>
+        </div>
+
+        <!-- Navigasi -->
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" disabled>Prev</button>
+            <button class="nav-btn" id="nextBtn">Next</button>
+            <button class="nav-btn" id="restartBtn" style="display: none;">Kembali ke Awal</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

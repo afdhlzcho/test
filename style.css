@@ -1,0 +1,259 @@
+/* --- GAYA UMUM & VARIABEL --- */
+:root {
+    --primary-color: #fff;
+    --accent-color: #f8b5d4; /* Soft Pink */
+    --secondary-color: #c9b6ff; /* Soft Purple */
+    --dark-color: #4a4a4a;
+    --font-heading: 'Dancing Script', cursive;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(to top right, #ffecd2 0%, #fcb69f 100%);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    height: 90vh;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.highlight {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* --- SLIDE & KONTEN --- */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    pointer-events: none; /* Non-aktifkan klik di slide yang tidak aktif */
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto; /* Aktifkan kembali klik di slide aktif */
+}
+
+/* --- SLIDE 1: COVER --- */
+.cover-content {
+    text-align: center;
+    animation: fadeInUp 1.5s ease;
+}
+.cover-content h1 { font-family: var(--font-heading); font-size: 6rem; color: var(--dark-color); margin-bottom: 10px; }
+.cover-content p { font-size: 1.2rem; color: var(--dark-color); }
+.cover-date { margin-top: 20px; font-size: 1rem; color: #888; font-style: italic; }
+
+/* --- SLIDE 2: POLAROID --- */
+.polaroid-container { text-align: center; animation: zoomIn 1s ease; }
+.polaroid { background: white; padding: 15px 15px 70px 15px; border: 1px solid #ddd; box-shadow: 5px 5px 15px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; }
+.polaroid:hover { transform: rotate(0deg) scale(1.05); }
+.polaroid img { max-width: 300px; height: auto; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+.polaroid p { font-family: var(--font-heading); font-size: 1.5rem; color: var(--dark-color); margin-top: 15px; }
+.cute-doodle { font-size: 3rem; position: absolute; bottom: 50px; right: 50px; animation: spin 4s linear infinite; }
+
+/* --- SLIDE 3: SCRAPBOOK --- */
+.scrapbook-title { font-family: var(--font-heading); font-size: 3rem; color: var(--dark-color); text-align: center; margin-bottom: 30px; animation: fadeIn 1.5s ease; }
+.scrapbook-content { position: relative; display: flex; justify-content: center; gap: 20px; }
+.scrapbook-item { text-align: center; }
+.scrapbook-item img { max-width: 200px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: transform 0.3s ease; }
+.scrapbook-item img:hover { transform: scale(1.1) rotate(2deg); }
+.scrapbook-item p { margin-top: 10px; font-family: var(--font-heading); font-size: 1.2rem; }
+.item-1 { animation: slideInLeft 1s ease; }
+.item-2 { animation: slideInRight 1s ease; }
+.washi-tape { position: absolute; top: -15px; left: 50%; transform: translateX(-50%) rotate(-5deg); width: 150px; height: 30px; background-color: rgba(248, 181, 212, 0.6); border-left: 1px dashed rgba(0,0,0,0.2); border-right: 1px dashed rgba(0,0,0,0.2); }
+
+/* --- SLIDE 4: PESAN --- */
+.letter-container { max-width: 600px; text-align: center; animation: fadeIn 1.5s ease; }
+.letter-content h2 { font-family: var(--font-heading); font-size: 3rem; color: var(--dark-color); margin-bottom: 20px; }
+.letter-content p { font-size: 1.1rem; line-height: 1.8; color: var(--dark-color); }
+.letter-signature { margin-top: 30px; font-family: var(--font-heading); font-size: 2rem; color: var(--secondary-color); }
+
+/* --- SLIDE 5: MOMEN REFLEKSI --- */
+#slide6 { background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070'); background-size: cover; background-position: center; position: relative; }
+#slide6::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); }
+.realization-content { text-align: center; color: #f0f0f0; z-index: 2; animation: zoomInFade 2s ease-out forwards; opacity: 0; }
+.realization-content h2 { font-family: var(--font-heading); font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
+.realization-content p { font-size: 1.3rem; font-weight: 300; max-width: 600px; line-height: 1.8; text-shadow: 1px 1px 5px rgba(0,0,0,0.7); }
+
+/* --- SLIDE 6: JANJI KITA --- */
+#slide7 { background-color: #fef9e7; color: var(--dark-color); }
+.promises-content h2 { font-family: var(--font-heading); font-size: 3rem; color: var(--secondary-color); margin-bottom: 2rem; text-align: center; }
+.promises-content ul { list-style: none; padding: 0; font-size: 1.2rem; line-height: 2.5; max-width: 600px; margin: 0 auto; text-align: left; }
+.promises-content li { opacity: 0; transform: translateX(-20px); animation: slideInFade 0.5s ease forwards; }
+.promises-content li:nth-child(1) { animation-delay: 0.2s; }
+.promises-content li:nth-child(2) { animation-delay: 0.4s; }
+.promises-content li:nth-child(3) { animation-delay: 0.6s; }
+.promises-content li:nth-child(4) { animation-delay: 0.8s; }
+
+/* --- SLIDE 7: HITUNGAN MUNDUR --- */
+#slide8 { background: linear-gradient(45deg, #4a4a4a, #2c2c2c); display: flex; justify-content: center; align-items: center; }
+.countdown-content h1 { font-family: var(--font-heading); font-size: 12rem; color: white; text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); animation: pulse-scale 1s infinite; }
+
+/* --- SLIDE 8: GRAND FINALE --- */
+.final-slide { background: linear-gradient(45deg, var(--accent-color), var(--secondary-color)); color: white; flex-direction: column; }
+.final-content { z-index: 2; text-align: center; }
+.final-content h1 { font-family: var(--font-heading); font-size: 5rem; margin-bottom: 20px; animation: pulse 2s infinite; }
+.photo-gallery { display: flex; gap: 15px; justify-content: center; margin-bottom: 30px; }
+.photo-gallery img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.2); animation: bounce 1.5s infinite alternate; }
+.photo-gallery img:nth-child(2) { animation-delay: 0.2s; }
+.photo-gallery img:nth-child(3) { animation-delay: 0.4s; }
+#typewriter { font-size: 1.2rem; font-weight: 300; min-height: 30px; border-right: 2px solid white; animation: blink 1s step-end infinite; }
+
+/* --- NAVIGASI & PROGRESS BAR --- */
+.navigation { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; z-index: 10; }
+.nav-btn { padding: 10px 20px; font-size: 1rem; font-family: var(--font-body); font-weight: 600; color: var(--dark-color); background-color: var(--primary-color); border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.nav-btn:hover:not(:disabled) { background-color: var(--accent-color); transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+.nav-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+#restartBtn { background-color: var(--secondary-color); color: white; }
+#restartBtn:hover { background-color: #b19cd9; }
+
+.progress-bar-container { position: absolute; top: 0; left: 0; width: 100%; height: 5px; background-color: rgba(0,0,0,0.1); }
+.progress-bar { height: 100%; width: 0; background-color: var(--secondary-color); transition: width 0.5s ease; }
+
+/* --- ANIMASI --- */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes zoomIn { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes zoomInFade { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideInFade { to { opacity: 1; transform: translateX(0); } }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-15px); } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes blink { from, to { border-color: transparent; } 50% { border-color: white; } }
+@keyframes pulse-scale { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.8; } 100% { transform: scale(1); opacity: 1; } }
+
+/* --- Floating Hearts (Cover Page) --- */
+.floating-hearts { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; overflow: hidden; }
+.heart { position: absolute; bottom: -100px; background-color: rgba(255, 105, 180, 0.7); animation: float-up 5s linear infinite; }
+.heart:before, .heart:after { content: ''; position: absolute; width: 52px; height: 80px; background-color: rgba(255, 105, 180, 0.7); border-radius: 50px 50px 0 0; }
+.heart:before { left: 50px; transform: rotate(-45deg); transform-origin: 0 100%; }
+.heart:after { left: 0; transform: rotate(45deg); transform-origin: 100% 100%; }
+@keyframes float-up { to { transform: translateY(-100vh) rotate(360deg); opacity: 0; } }
+
+/* --- SLIDE 4: VIDEO --- */
+.video-slide {
+    background-color: #1a1a1a; /* Latar belakang gelap untuk video */
+    flex-direction: column;
+}
+
+.video-slide h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.video-slide video {
+    max-width: 90%;
+    max-height: 70vh;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* --- RESPONSIVE DESAIN UNTUK LAYAR KECIL (HP/TABLET) --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Sedikit perkecil font dasar */
+    }
+
+    .container {
+        width: 95%;
+        height: 95vh;
+        padding: 20px;
+    }
+
+    /* --- Slide 1: Cover --- */
+    .cover-content h1 { font-size: 3.5rem; }
+    .cover-content p { font-size: 1rem; }
+
+    /* --- Slide 2: Polaroid --- */
+    .polaroid img { max-width: 250px; }
+    /* --- Slide 2: Polaroid --- */
+    .polaroid img { max-width: 250px; }
+    .cute-doodle {
+    font-size: 2rem; /* Perkecil ukuran emoji */
+    bottom: 20px;    /* Atur posisi agar tidak terlalu bawah */
+    right: 20px;     /* Atur posisi agar tidak terlalu kanan */
+}
+
+    /* --- Slide 3: Scrapbook --- */
+    .scrapbook-content {
+        flex-direction: column; /* Tumpuk gambar jadi ke atas dan ke bawah */
+        gap: 30px;
+    }
+    .scrapbook-item img { max-width: 90%; }
+
+    /* --- Slide 4: Video --- */
+    .video-slide h2 { font-size: 2rem; }
+    .video-slide video { max-width: 100%; max-height: 60vh; }
+
+    /* --- Slide 5: Pesan --- */
+    .letter-content h2 { font-size: 2.5rem; }
+    .letter-content p { font-size: 1rem; }
+
+    /* --- Slide 6: Momen Refleksi --- */
+    .realization-content h2 { font-size: 2.5rem; }
+    .realization-content p { font-size: 1.1rem; }
+
+    /* --- Slide 7: Janji Kita --- */
+    .promises-content h2 { font-size: 2rem; }
+    .promises-content ul { font-size: 1rem; text-align: center; }
+
+    /* --- Slide 8: Hitungan Mundur --- */
+    .countdown-content h1 { font-size: 8rem; } /* Perkecil ukuran angka */
+
+    /* --- Slide 9: Grand Finale --- */
+    .final-content h1 { font-size: 3.5rem; }
+    .photo-gallery {
+        flex-direction: column; /* Tumpuk foto galeri */
+        align-items: center;
+        gap: 15px;
+    }
+    .photo-gallery img {
+        width: 120px;
+        height: 120px;
+    }
+    #typewriter { font-size: 1rem; }
+
+    /* --- Navigasi --- */
+    .navigation {
+        bottom: 15px;
+        gap: 10px;
+    }
+    .nav-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
